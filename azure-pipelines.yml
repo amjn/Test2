@@ -37,11 +37,13 @@ jobs:
    pool:
     name: default
    steps:
-      - task: PublishBuildArtifacts@1
-        inputs:
-         PathtoPublish: 'artifact1.1'
-         ArtifactName: 'A1.1'
-         publishLocation: 'Container'
+      - publish: 'A1.1'
+        artifact: artifact1.1
+      # - task: PublishBuildArtifacts@1
+      #   inputs:
+      #    PathtoPublish: 'artifact1.1'
+      #    ArtifactName: 'A1.1'
+      #    publishLocation: 'Container'
       - task: PublishBuildArtifacts@1
         inputs:
          PathtoPublish: 'artifact1.2'
