@@ -98,14 +98,14 @@ jobs:
     runOnce:
       deploy:
        steps:
-        - task: DownloadBuildArtifacts@0
-          inputs:
-            # downloadType: specific
-            # itemPattern: '**'
-            artifactName: 'A2'
-            downloadPath: '$(System.ArtifactStagingDirectory)'
-        # - task: DownloadPipelineArtifact@2
+        # - task: DownloadBuildArtifacts@0
         #   inputs:
-        #     buildType: 'current'
+        #     # downloadType: specific
+        #     # itemPattern: '**'
         #     artifactName: 'A2'
-        #     targetPath: '$(Pipeline.Workspace)'
+        #     downloadPath: '$(System.ArtifactStagingDirectory)'
+        - task: DownloadPipelineArtifact@2
+          inputs:
+            buildType: 'current'
+            artifactName: 'A2'
+            targetPath: '$(Pipeline.Workspace)'
