@@ -41,7 +41,7 @@ jobs:
       #   artifact: artifact1.1
       - task: PublishPipelineArtifact@1
         inputs:
-          targetPath: '$(Pipeline.Workspace)'
+          targetPath: 'artifact1.1'
           artifact: 'A1.1'
 
       # - task: PublishPipelineArtifact@1
