@@ -80,6 +80,7 @@ jobs:
     name: default
    dependsOn: J1
    steps:
+      - download: current
       - task: DownloadBuildArtifacts@0
         inputs:
           artifactName: 'A1.1'
