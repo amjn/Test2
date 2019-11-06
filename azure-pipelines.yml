@@ -109,7 +109,7 @@ jobs:
     runOnce:
       deploy:
        steps:
-        - download: none
+        # - download: none
         # - task: DownloadBuildArtifacts@0
         #   inputs:
         #     # downloadType: specific
