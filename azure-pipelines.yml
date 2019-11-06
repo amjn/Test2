@@ -104,7 +104,7 @@ jobs:
           inputs:
             # downloadType: specific
             # itemPattern: '**'
-            artifactName: 'A2'
+            artifactName: 'A1.1'
             downloadPath: '$(System.ArtifactStagingDirectory)'
         # - task: DownloadPipelineArtifact@2
         #   inputs:
