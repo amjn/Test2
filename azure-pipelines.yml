@@ -39,14 +39,21 @@ jobs:
    steps:
       # - publish: 'A1.1'
       #   artifact: artifact1.1
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: 'artifact1.1'
-          artifact: 'A1.1'
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: 'artifact1.2'
-          artifact: 'A1.2'
+      - publish: artifact1.1
+        artifact: A1.1
+
+      # - task: PublishPipelineArtifact@1
+      #   inputs:
+      #     targetPath: 'artifact1.1'
+      #     artifact: 'A1.1'
+
+      - publish: artifact1.2
+        artifact: A1.2
+
+      # - task: PublishPipelineArtifact@1
+      #   inputs:
+      #     targetPath: 'artifact1.2'
+      #     artifact: 'A1.2'
 
       # - task: PublishBuildArtifacts@1
       #   inputs:
@@ -70,10 +77,12 @@ jobs:
       #    ArtifactName: 'A2'
       #    publishLocation: 'Container'
 
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: 'artifact2'
-          artifact: 'A2'
+      - publish: artifact2
+        artifact: A2
+      # - task: PublishPipelineArtifact@1
+      #   inputs:
+      #     targetPath: 'artifact2'
+      #     artifact: 'A2'
 
  - job: J3
    pool:
@@ -81,15 +90,16 @@ jobs:
    dependsOn: J1
    steps:
       - download: current
+        artifact: A1.1
       # - task: DownloadBuildArtifacts@0
       #   inputs:
       #     artifactName: 'A1.1'
       #     downloadPath: '$(System.ArtifactStagingDirectory)'
-      - task: DownloadPipelineArtifact@2
-        inputs:
-          buildType: 'current'
-          artifactName: 'A1.1'
-          targetPath: '$(Pipeline.Workspace)'
+      # - task: DownloadPipelineArtifact@2
+      #   inputs:
+      #     buildType: 'current'
+      #     artifactName: 'A1.1'
+      #     targetPath: '$(Pipeline.Workspace)'
 
  - deployment: deploymentJob4
    environment: envionment4
