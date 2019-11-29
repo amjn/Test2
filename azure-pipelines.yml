@@ -103,7 +103,7 @@ jobs:
 
  - deployment: deploymentJob4
    environment: envionment4
-   dependsOn: J1, J2
+   dependsOn: [J1, J2]
    pool: Default
    strategy:
     runOnce:
