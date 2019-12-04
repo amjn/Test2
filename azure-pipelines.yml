@@ -34,7 +34,7 @@ jobs:
 #          - powershell: |
 #             ls $(Build.ArtifactStagingDirectory)/
  - job: J1
-   pool: hosted
+   pool: default
    steps:
       # - publish: 'A1.1'
       #   artifact: artifact1.1
@@ -71,7 +71,7 @@ jobs:
       #       ls $(Build.ArtifactStagingDirectory)/
 #  - job: J2
 #    pool:
-#     name: hosted
+#     name: default
 #    steps:
 #       # - task: PublishBuildArtifacts@1
 #       #   inputs:
@@ -88,7 +88,7 @@ jobs:
 
  - job: J3
    pool:
-    name: hosted
+    name: default
    dependsOn: J1
    steps:
       - download: current
@@ -111,7 +111,7 @@ jobs:
 #  - deployment: deploymentJob4
 #    environment: envionment4
 #    dependsOn: [J1, J2]
-#    pool: hosted
+#    pool: default
 #    strategy:
 #     runOnce:
 #       deploy:
