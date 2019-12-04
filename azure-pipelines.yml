@@ -40,11 +40,14 @@ jobs:
       #   artifact: artifact1.1
       # - publish: artifact1.1
       #   artifact: A1.1
-
-      - task: PublishPipelineArtifact@1
+      - task: PublishPipelineArtifact@0
         inputs:
-          targetPath: 'artifact1.1'
-          artifact: 'A1.1'
+          artifactName: 'A1'
+          targetPath: '$(System.DefaultWorkingDirectory)'
+      # - task: PublishPipelineArtifact@1
+      #   inputs:
+      #     targetPath: 'artifact1.1'
+      #     artifact: 'A1.1'
 
       # - publish: artifact1.2
       #   artifact: A1.2
@@ -94,11 +97,16 @@ jobs:
       #   inputs:
       #     artifactName: 'A1.1'
       #     downloadPath: '$(System.ArtifactStagingDirectory)'
-      - task: DownloadPipelineArtifact@2
+
+      - task: DownloadPipelineArtifact@0
         inputs:
-          # buildType: 'current'
-          artifactName: 'A1.1'
-          targetPath: '$(Pipeline.Workspace)'
+          artifactName: 'A1'
+          targetPath: '$(System.DefaultWorkingDirectory)'
+      # - task: DownloadPipelineArtifact@2
+      #   inputs:
+      #     # buildType: 'current'
+      #     artifactName: 'A1.1'
+      #     targetPath: '$(Pipeline.Workspace)'
 
 #  - deployment: deploymentJob4
 #    environment: envionment4
