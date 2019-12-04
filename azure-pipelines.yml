@@ -38,12 +38,12 @@ jobs:
    steps:
       # - publish: 'A1.1'
       #   artifact: artifact1.1
-      # - publish: artifact1.1
-      #   artifact: A1.1
-      - task: PublishPipelineArtifact@0
-        inputs:
-          artifactName: 'A1'
-          targetPath: '$(System.DefaultWorkingDirectory)'
+      - publish: artifact1.1
+        artifact: A1.1
+      # - task: PublishPipelineArtifact@0
+      #   inputs:
+      #     artifactName: 'A1'
+      #     targetPath: '$(System.DefaultWorkingDirectory)'
       # - task: PublishPipelineArtifact@1
       #   inputs:
       #     targetPath: 'artifact1.1'
@@ -91,17 +91,17 @@ jobs:
     name: hosted
    dependsOn: J1
    steps:
-      # - download: current
-      #   artifact: A1.1
+      - download: current
+        artifact: A1.1
       # - task: DownloadBuildArtifacts@0
       #   inputs:
       #     artifactName: 'A1.1'
       #     downloadPath: '$(System.ArtifactStagingDirectory)'
 
-      - task: DownloadPipelineArtifact@0
-        inputs:
-          artifactName: 'A1'
-          targetPath: '$(System.DefaultWorkingDirectory)'
+      # - task: DownloadPipelineArtifact@0
+      #   inputs:
+      #     artifactName: 'A1'
+      #     targetPath: '$(System.DefaultWorkingDirectory)'
       # - task: DownloadPipelineArtifact@2
       #   inputs:
       #     # buildType: 'current'
