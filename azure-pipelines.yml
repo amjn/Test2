@@ -108,23 +108,23 @@ jobs:
       #     artifactName: 'A1.1'
       #     targetPath: '$(Pipeline.Workspace)'
 
-#  - deployment: deploymentJob4
-#    environment: envionment4
-#    dependsOn: [J1, J2]
-#    pool: default
-#    strategy:
-#     runOnce:
-#       deploy:
-#        steps:
-#         # - download: none
-#         # - task: DownloadBuildArtifacts@0
-#         #   inputs:
-#         #     # downloadType: specific
-#         #     # itemPattern: '**'
-#         #     artifactName: 'A1.1'
-#         #     downloadPath: '$(System.ArtifactStagingDirectory)'
-#         - task: DownloadPipelineArtifact@2
-#           inputs:
-#             buildType: 'current'
-#             artifactName: 'A2'
-#             targetPath: '$(Pipeline.Workspace)'
+ - deployment: deploymentJob4
+   environment: envionment4
+   dependsOn: [J1, J2]
+   pool: default
+   strategy:
+    runOnce:
+      deploy:
+       steps:
+        # - download: none
+        # - task: DownloadBuildArtifacts@0
+        #   inputs:
+        #     # downloadType: specific
+        #     # itemPattern: '**'
+        #     artifactName: 'A1.1'
+        #     downloadPath: '$(System.ArtifactStagingDirectory)'
+        - task: DownloadPipelineArtifact@2
+          inputs:
+            buildType: 'current'
+            artifactName: 'A2'
+            targetPath: '$(Pipeline.Workspace)'
