@@ -89,7 +89,7 @@ jobs:
  - job: J3
    pool:
     name: default
-   dependsOn: J1
+   dependsOn: [J1, J2]
    steps:
       - download: current
         # artifact: A1.1
