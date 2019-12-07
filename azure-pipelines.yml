@@ -116,6 +116,8 @@ jobs:
     runOnce:
       deploy:
        steps:
+        - powershell: |
+            ls $(Build.ArtifactStagingDirectory)/
         # - download: none
         # - task: DownloadBuildArtifacts@0
         #   inputs:
@@ -123,8 +125,8 @@ jobs:
         #     # itemPattern: '**'
         #     artifactName: 'A1.1'
         #     downloadPath: '$(System.ArtifactStagingDirectory)'
-        - task: DownloadPipelineArtifact@2
-          inputs:
-            buildType: 'current'
-            artifactName: 'A2'
-            targetPath: '$(Pipeline.Workspace)'
+        # - task: DownloadPipelineArtifact@2
+        #   inputs:
+        #     buildType: 'current'
+        #     artifactName: 'A2'
+        #     targetPath: '$(Pipeline.Workspace)'
