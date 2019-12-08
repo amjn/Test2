@@ -86,13 +86,13 @@ jobs:
 #       #     targetPath: 'artifact2'
 #       #     artifact: 'A2'
 
- - job: J3
-   pool:
-    name: default
-   dependsOn: [J1, J2]
-   steps:
-      - download: current
-        # artifact: A1.1
+#  - job: J3
+#    pool:
+#     name: default
+#    dependsOn: [J1, J2]
+#    steps:
+#       - download: current
+#         # artifact: A1.1
       # - task: DownloadBuildArtifacts@0
       #   inputs:
       #     artifactName: 'A1.1'
