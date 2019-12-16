@@ -94,7 +94,7 @@ jobs:
       - powershell: |
             ls $(Build.ArtifactStagingDirectory)/
       - download: current
-        artifact: A1.1
+        # artifact: A1.1
       # - task: DownloadBuildArtifacts@0
       #   inputs:
       #     artifactName: 'A1.1'
@@ -120,7 +120,7 @@ jobs:
        steps:
         - powershell: |
             ls $(Build.ArtifactStagingDirectory)/
-        # - download: none
+        - download: none
         # - task: DownloadBuildArtifacts@0
         #   inputs:
         #     # downloadType: specific
