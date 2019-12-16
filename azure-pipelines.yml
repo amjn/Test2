@@ -93,8 +93,8 @@ jobs:
    steps:
       - powershell: |
             ls $(Build.ArtifactStagingDirectory)/
-      # - download: current
-        # artifact: A1.1
+      - download: current
+        artifact: A1.1
       # - task: DownloadBuildArtifacts@0
       #   inputs:
       #     artifactName: 'A1.1'
@@ -127,8 +127,8 @@ jobs:
         #     # itemPattern: '**'
         #     artifactName: 'A1.1'
         #     downloadPath: '$(System.ArtifactStagingDirectory)'
-        # - task: DownloadPipelineArtifact@2
-        #   inputs:
-        #     buildType: 'current'
-        #     artifactName: 'A2'
-        #     targetPath: '$(Pipeline.Workspace)'
+        - task: DownloadPipelineArtifact@2
+          inputs:
+            buildType: 'current'
+            artifactName: 'A2'
+            targetPath: '$(Pipeline.Workspace)'
