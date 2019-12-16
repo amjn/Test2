@@ -91,7 +91,9 @@ jobs:
     name: default
    dependsOn: [J1, J2]
    steps:
-      - download: current
+      - powershell: |
+            ls $(Build.ArtifactStagingDirectory)/
+      # - download: current
         # artifact: A1.1
       # - task: DownloadBuildArtifacts@0
       #   inputs:
@@ -118,7 +120,7 @@ jobs:
        steps:
         - powershell: |
             ls $(Build.ArtifactStagingDirectory)/
-        - download: current
+        - download: none
         # - task: DownloadBuildArtifacts@0
         #   inputs:
         #     # downloadType: specific
