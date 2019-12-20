@@ -86,15 +86,15 @@ jobs:
 #       #     targetPath: 'artifact2'
 #       #     artifact: 'A2'
 
-#  - job: J3
-#    pool:
-#     name: default
-#    dependsOn: [J1, J2]
-#    steps:
-#       - powershell: |
-#             ls $(Build.ArtifactStagingDirectory)/
-#       - download: current
-        # artifact: A1.1
+ - job: J3
+   pool:
+    name: default
+   dependsOn: [J1, J2]
+   steps:
+      - powershell: |
+            ls $(Build.ArtifactStagingDirectory)/
+      - download: current
+        artifact: A1.1
       # - task: DownloadBuildArtifacts@0
       #   inputs:
       #     artifactName: 'A1.1'
@@ -110,17 +110,17 @@ jobs:
       #     artifactName: 'A1.1'
       #     targetPath: '$(Pipeline.Workspace)'
 
-#  - deployment: deploymentJob4
-#    environment: envionment4
-#    dependsOn: [J1, J2]
-#    pool: default
-#    strategy:
-#     runOnce:
-#       deploy:
-#        steps:
-#         - powershell: |
-#             ls $(Build.ArtifactStagingDirectory)/
-#         - download: none
+ - deployment: deploymentJob4
+   environment: envionment4
+   dependsOn: [J1, J2]
+   pool: default
+   strategy:
+    runOnce:
+      deploy:
+       steps:
+        - powershell: |
+            ls $(Build.ArtifactStagingDirectory)/
+        - download: none
 #         # - task: DownloadBuildArtifacts@0
 #         #   inputs:
 #         #     # downloadType: specific
