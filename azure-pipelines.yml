@@ -34,7 +34,7 @@ jobs:
 #          - powershell: |
 #             ls $(Build.ArtifactStagingDirectory)/
  - job: J1
-   pool: default
+  #  pool: default
    steps:
       # - publish: 'A1.1'
       #   artifact: artifact1.1
@@ -76,8 +76,8 @@ jobs:
          ArtifactName: 'A1.1'
          publishLocation: 'Container'
  - job: J2
-   pool:
-    name: default
+  #  pool: 
+    # name: default
    steps:
       - task: PublishBuildArtifacts@1
         inputs:
